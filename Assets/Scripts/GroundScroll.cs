@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroudScroll : MonoBehaviour
+public class GroundScroll : MonoBehaviour
 {
     public Vector3 oriPos;
     //public float Speed = 3;

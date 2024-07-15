@@ -35,8 +35,10 @@ public class PlayerControl : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        GameManager.instance.isPlay = false;
-        Mon = col.gameObject;
-        
+        if (col.tag == "monster")
+        {
+            GameManager.instance.isPlay = false;
+            Mon = col.gameObject;
+        }
     }
 }

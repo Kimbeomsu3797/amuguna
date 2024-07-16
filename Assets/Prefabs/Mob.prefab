@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3336261782282083077}
   - component: {fileID: 2392388113558330603}
   - component: {fileID: 6453581472681683111}
+  - component: {fileID: 8507572368278420683}
+  - component: {fileID: 6574539255577705002}
   m_Layer: 0
   m_Name: Mob
   m_TagString: monster
@@ -32,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3336261782282083077
 SpriteRenderer:
@@ -133,7 +135,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aadf0325e0528f4bbf1bdf418b3bd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000000000
   StartPosition: {x: 12, y: -0.98}
   money: {fileID: 3822372562944160084, guid: 47d8fd99d32896d48abc521a3f698fe2, type: 3}
   target: {fileID: 0}
+  animator: {fileID: 0}
+  att: 10
+--- !u!114 &8507572368278420683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059117252428214430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faab2e9e7f24fa14f98067cc64bf68bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDamege: {fileID: 8716631850667521252, guid: 1ac73384d128e34479727b42a0797a0c, type: 3}
+--- !u!95 &6574539255577705002
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5059117252428214430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7052c8b4bb06f644ea75e62b72afedbd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

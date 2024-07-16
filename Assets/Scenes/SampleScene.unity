@@ -396,7 +396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c7efa3e3bb44c4b863b62fa56b5dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  att: 100
+  HP: 100
+  MaxHP: 100
+  hp_bar: {fileID: 1062287204}
+  att: 100000000
 --- !u!1 &306707579
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSpeed: 3
   isPlay: 1
+  Money: 1000
+  MoneyTxt: {fileID: 114160232}
 --- !u!4 &324929318
 Transform:
   m_ObjectHideFlags: 0
@@ -1096,7 +1101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 37, y: -36.75}
+  m_AnchoredPosition: {x: 27, y: -38}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1678933614

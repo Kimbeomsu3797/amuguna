@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
-    public int att = 10;
+    public float HP = 100;
+    public float MaxHP = 100;
+    public Image hp_bar;
+    
+    public long att = 10;
     Animator animator;
     float Curtime = 0;
 
@@ -39,6 +44,15 @@ public class PlayerControl : MonoBehaviour
         {
             GameManager.instance.isPlay = false;
             Mon = col.gameObject;
+        }
+    }
+   public void Damage(int att)
+    {
+        HP -= att;
+        hp_bar.fillAmount = HP / MaxHP;
+        if (HP < 0)
+        {
+
         }
     }
 }

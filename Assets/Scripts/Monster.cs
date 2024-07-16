@@ -1,23 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Monster : MonoBehaviour
 {
-    public int HP = 100;
-    int oriHP;//max hp
+    public long HP = 100;
+    long oriHP;//max hp
     public Vector2 StartPosition;
-
+    GameObject player;
     //동전
     //public itemfx prefabitem;
     public GameObject money;
     public Transform target;
+    public Animator animator;
+    float Curtime = 0f;
+    public int att = 10;
     // Start is called before the first frame update
     void Start()
     {
         oriHP = HP;
         //머니가 생성되서 골드ui좌표로 이동하는 연출을 위한 목적지(좌표)
         target = GameObject.Find("Gold").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,14 +32,31 @@ public class Monster : MonoBehaviour
         if (GameManager.instance.isPlay)
         {
             transform.Translate(Vector2.left * Time.deltaTime * GameManager.instance.gameSpeed);
-            if (transform.position.x < -16)
+            if (transform.position.x < -14)
             {
                 gameObject.SetActive(false);
                 transform.position = StartPosition;
             }
         }
+        else
+        {
+            if (Curtime >= 1)
+            {
+                float dis = Vector3.Distance(player.transform.position, transform.position);
+
+                if(dis <= 3)
+                {
+                    animator.SetBool("Attack", true);
+                    player.GetComponent<PlayerControl>().Damage(att);
+                    Curtime = 0;
+
+                }
+                
+            }
+            Curtime += Time.deltaTime;
+        }
     }
-    public void Damage(int att)
+    public void Damage(long att)
     {
         HP -= att;
         if (HP <= 0)
@@ -47,11 +70,18 @@ public class Monster : MonoBehaviour
                 itemFx.transform.SetParent(GameObject.Find("Canvas").transform);
                 itemFx.GetComponent<ItemFx>().Explosion(screenPos, target.position, 150f);
             }
+            GameManager.instance.SetMoney(Random.Range(50, 100));
             gameObject.SetActive(false);
             transform.position = StartPosition;
             //HP = 100;
             HP = oriHP;
             GameManager.instance.isPlay = true;
+             
+        }
+        else
+        {
+            DamageOn damageTxt = GetComponent<DamageOn>();
+            damageTxt.DamegeTxt();
         }
     }
 }

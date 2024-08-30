@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aadf0325e0528f4bbf1bdf418b3bd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 1000000000
+  HP: 10000
   StartPosition: {x: 12, y: -0.98}
   money: {fileID: 3822372562944160084, guid: 47d8fd99d32896d48abc521a3f698fe2, type: 3}
   target: {fileID: 0}

@@ -125,6 +125,20 @@ public class PlayerControl : MonoBehaviour
             HpTxt.text = "현재 체력 : " + HP;
         }
     }
+    public void DefUp()
+    {
+        if (GameManager.instance.Money < 1000)
+        {
+            Debug.Log("금액이 적습니다");
+        }
+        else
+        {
+            GameManager.instance.SetMoney(-1000);
+            def += 100;
+
+            DefTxt.text = "현재 민첩성 : " + def;
+        }
+    }
     public void DexUp()
     {
         if (GameManager.instance.Money < 1000)

@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             gameSpeed = 0;
         }
+        MoneyTxt.text = Money.ToString();
     }
     public void SetMoney(float money)
     {

@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8716631850667521252}
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 0.013375282, g: 1, b: 0, a: 1}
 --- !u!1 &8716631850667521252
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8716631850667521252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c87d277eaf82884baa582d391a5f3a4, type: 3}
   m_Name: 

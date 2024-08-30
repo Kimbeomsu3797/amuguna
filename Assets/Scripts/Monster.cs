@@ -82,6 +82,16 @@ public class Monster : MonoBehaviour
         {
             DamageOn damageTxt = GetComponent<DamageOn>();
             damageTxt.DamegeTxt();
+            Debug.Log(14);
         }
+    }
+    public void CreDamage(long creatt)
+    {
+        HP -= creatt;
+
+        DamageOn damageTxt = GetComponent<DamageOn>();
+        damageTxt.CreDamageTxt();
+        Debug.Log(13);
+        //
     }
 }

@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabDamege: {fileID: 8716631850667521252, guid: 1ac73384d128e34479727b42a0797a0c, type: 3}
+  CreDamage: {fileID: 8716631850667521252, guid: 3e9349dfac43be5459151bda0459da84, type: 3}
 --- !u!95 &6574539255577705002
 Animator:
   serializedVersion: 5

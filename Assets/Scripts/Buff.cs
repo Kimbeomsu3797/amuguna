@@ -18,6 +18,7 @@ public class Buff : MonoBehaviour
         icon = GetComponent<Image>();
         player = GameObject.Find("Player").GetComponent<PlayerControl>();
     }
+
     public void Init(string type, float per, float du)
     {
         this.type = type;
@@ -33,6 +34,8 @@ public class Buff : MonoBehaviour
 
     private void Execute()
     {
+        player.onBuff.Add(this);
+        player.ChooseBuff(type);
         StartCoroutine(Activation());
     }
     IEnumerator Activation()
@@ -50,6 +53,8 @@ public class Buff : MonoBehaviour
 
     private void DeActivation()
     {
+        player.onBuff.Remove(this);
+        player.minusBuff(type);
         Destroy(gameObject);
     }
 

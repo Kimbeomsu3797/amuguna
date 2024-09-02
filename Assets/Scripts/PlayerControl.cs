@@ -6,6 +6,8 @@ using TMPro;
 
 public class PlayerControl : MonoBehaviour
 {
+    //Buff
+    public List<Buff> onBuff = new List<Buff>();
     public float HP = 100;
     public float MaxHP = 100;
     public float dex = 1000;
@@ -166,6 +168,73 @@ public class PlayerControl : MonoBehaviour
             cre += 1;
 
             CreTxt.text = "현재 민첩성 : " + cre * 0.001f;
+        }
+    }
+    public float BuffChange(string type, float origin)
+    {
+        //리스트에 버프가 담기면
+        if(onBuff.Count > 0)
+        {
+            float temp = 0;
+            //버프 수 만큼 반복을 통해 버프를 (버프의 타입이 같다면)누적 시킨다.
+            for(int i = 0; i < onBuff.Count; i++)
+            {
+                //버프의 타입이 (매개변수와)같다면
+                if (onBuff[i].type.Equals(type))
+                {
+                    temp += origin * onBuff[i].percentage;
+                }
+            }
+            return origin + temp;
+        }
+        //버프가 끝나면(버프가 없다면) 기본값으로 돌려준다
+        else
+        {
+            return origin;
+        }
+    }
+    public float mBuffChange(string type, float origin)
+    {
+        if(onBuff.Count > 0)
+        {
+            float temp = 0;
+            for(int i = 0; i < onBuff.Count; i++)
+            {
+                if (onBuff[i].type.Equals(type))
+                {
+                    temp += origin * onBuff[i].percentage;
+                }
+            }
+            return origin - temp;
+        }
+        else 
+        {
+            return origin;
+        }
+    }
+
+    public void ChooseBuff(string type)
+    {
+        switch (type)
+        {
+            case "Atk":
+                att = (long)BuffChange(type, att);
+                break;
+            case "dex":
+                dex = (long)BuffChange(type, dex);
+                break;
+        }
+    }
+    public void minusBuff(string type)
+    {
+        switch (type)
+        {
+            case "Atk":
+                att = (long)mBuffChange(type, att);
+                break;
+            case "dex":
+                dex = (long)mBuffChange(type, dex);
+                break;
         }
     }
 }
